@@ -43,12 +43,22 @@ function authHeaders() {
  * Returns parsed JSON or throws an error object.
  */
 async function apiGet(path) {
-    const response = await fetch(API_BASE + path, {
-        method: "GET",
-        headers: authHeaders()
-    });
+    let response;
+    try {
+        response = await fetch(API_BASE + path, {
+            method: "GET",
+            headers: authHeaders()
+        });
+    } catch (e) {
+        throw { status: 0, detail: "Cannot connect to server. Ensure backend is running." };
+    }
 
-    const data = await response.json();
+    let data;
+    try {
+        data = await response.json();
+    } catch (e) {
+        throw { status: response.status, detail: "Invalid JSON response from server." };
+    }
 
     if (!response.ok) {
         throw { status: response.status, detail: data.detail || "Request failed" };
@@ -62,16 +72,26 @@ async function apiGet(path) {
  * Returns parsed JSON or throws an error object.
  */
 async function apiPost(path, body) {
-    const response = await fetch(API_BASE + path, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            ...authHeaders()
-        },
-        body: JSON.stringify(body)
-    });
+    let response;
+    try {
+        response = await fetch(API_BASE + path, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                ...authHeaders()
+            },
+            body: JSON.stringify(body)
+        });
+    } catch (e) {
+        throw { status: 0, detail: "Cannot connect to server. Ensure backend is running." };
+    }
 
-    const data = await response.json();
+    let data;
+    try {
+        data = await response.json();
+    } catch (e) {
+        throw { status: response.status, detail: "Invalid JSON response from server." };
+    }
 
     if (!response.ok) {
         throw { status: response.status, detail: data.detail || "Request failed" };
@@ -106,13 +126,23 @@ async function loginUser(email, password) {
     formData.append("username", email);
     formData.append("password", password);
 
-    const response = await fetch(API_BASE + "/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData.toString()
-    });
+    let response;
+    try {
+        response = await fetch(API_BASE + "/auth/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: formData.toString()
+        });
+    } catch (e) {
+        throw { status: 0, detail: "Cannot connect to server. Ensure backend is running." };
+    }
 
-    const data = await response.json();
+    let data;
+    try {
+        data = await response.json();
+    } catch (e) {
+        throw { status: response.status, detail: "Invalid JSON response from server." };
+    }
 
     if (!response.ok) {
         throw { status: response.status, detail: data.detail || "Login failed" };
