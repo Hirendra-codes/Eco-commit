@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>EcoCommit Dashboard</title>
 
 <link rel="stylesheet" href="dashboard.css">
 <link rel="stylesheet" href="navbar.css">
 <link rel="stylesheet" href="toast.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- DM Sans + DM Serif Display (replaces Inter) -->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -22,160 +22,154 @@
 
 <main class="container">
 
-<h1>Impact Dashboard</h1>
-<p class="subtitle">Track your environmental impact in real-time</p>
+  <!-- PAGE HEADER -->
+  <h1>Impact Dashboard</h1>
+  <p class="subtitle">Track your environmental impact in real-time</p>
 
+  <!-- ── STAT CARDS ── -->
+  <section class="stats">
 
-<section class="stats">
+    <div class="stat">
+      <i data-lucide="trending-down"></i>
+      <span>Daily CO₂ Saved</span>
+      <h2 class="count" id="statDailyCO2" data-target="0" data-suffix=" kg">0 kg</h2>
+    </div>
 
-<div class="stat">
-<i data-lucide="trending-down"></i>
-<span>Daily CO₂ Saved</span>
-<h2 class="count" id="statDailyCO2" data-target="0" data-suffix=" kg">0</h2>
-</div>
+    <div class="stat">
+      <i data-lucide="leaf"></i>
+      <span>Monthly CO₂ Saved</span>
+      <h2 class="count" id="statMonthlyCO2" data-target="0" data-suffix=" kg">0 kg</h2>
+    </div>
 
-<div class="stat">
-<i data-lucide="leaf"></i>
-<span>Monthly CO₂ Saved</span>
-<h2 class="count" id="statMonthlyCO2" data-target="0" data-suffix=" kg">0</h2>
-</div>
+    <div class="stat">
+      <i data-lucide="tree-pine"></i>
+      <span>Trees Equivalent</span>
+      <h2 class="count" id="statTrees" data-target="0">0</h2>
+    </div>
 
-<div class="stat">
-<i data-lucide="tree-pine"></i>
-<span>Trees Equivalent</span>
-<h2 class="count" id="statTrees" data-target="0">0</h2>
-</div>
+    <div class="stat">
+      <i data-lucide="dollar-sign"></i>
+      <span>Money Saved</span>
+      <h2 class="count" id="statMoney" data-target="0" data-prefix="$">$0</h2>
+    </div>
 
-<div class="stat">
-<i data-lucide="dollar-sign"></i>
-<span>Money Saved</span>
-<h2 class="count" id="statMoney" data-target="0" data-prefix="$">0</h2>
-</div>
+    <div class="stat">
+      <i data-lucide="star"></i>
+      <span>EcoPoints</span>
+      <h2 class="count" id="statEcoPoints" data-target="0">0</h2>
+    </div>
 
-<div class="stat">
-<i data-lucide="star"></i>
-<span>EcoPoints</span>
-<h2 class="count" id="statEcoPoints" data-target="0">0</h2>
-</div>
+  </section>
 
-</section>
+  <!-- ── MAIN GRID ── -->
+  <section class="grid">
 
+    <!-- Transport Tracking -->
+    <div class="card">
+      <h3><i data-lucide="zap"></i> Track Your Transport</h3>
 
-<section class="grid">
+      <div class="transport">
+        <button class="tbtn active" data-mode="Walk">Walk</button>
+        <button class="tbtn" data-mode="Bus">Bus</button>
+        <button class="tbtn" data-mode="Bike">Bike</button>
+        <button class="tbtn" data-mode="Car">Car</button>
+      </div>
 
+      <div class="goalBox">
+        <label>Today's Distance Goal (km)</label>
+        <input id="goalInput" type="number" min="0" step="0.1" value="5">
+      </div>
 
-<div class="card">
+      <p class="distance">
+        Progress: <b id="progressKm">0.00</b> /
+        <b id="goalDisplay">5</b> km
+      </p>
 
-<h3><i data-lucide="zap"></i> Track Your Transport</h3>
+      <input id="range" type="range" min="0" max="100" value="0" disabled>
 
-<div class="transport">
-<button class="tbtn active" data-mode="Walk">Walk</button>
-<button class="tbtn" data-mode="Bus">Bus</button>
-<button class="tbtn" data-mode="Bike">Bike</button>
-<button class="tbtn" data-mode="Car">Car</button>
-</div>
+      <button id="trackBtn" class="submit">Start Tracking</button>
 
-<div class="goalBox">
-<label>Today's Distance Goal (km)</label>
-<input id="goalInput" type="number" min="0" step="0.1" value="5">
-</div>
+      <hr>
 
-<p class="distance">
-Progress: <b id="progressKm">0.00</b> /
-<b id="goalDisplay">5</b> km
-</p>
+      <h4 class="pledgeTitle">
+        <i data-lucide="snowflake"></i>
+        No-AC Day Pledge
+      </h4>
 
-<input id="range" type="range" min="0" max="100" value="0" disabled>
+      <div class="pledgeCard">
+        🌿 I Used No AC Today
+      </div>
+    </div>
 
-<button id="trackBtn" class="submit">Start Tracking</button>
+    <!-- AI Engine -->
+    <div class="card">
+      <h3><i data-lucide="brain"></i> AI Engine</h3>
 
-<hr>
+      <ul class="ai">
+        <li>Activity Classification   <span class="done">✓ Complete</span></li>
+        <li>Carbon Calculator         <span class="done">✓ Complete</span></li>
+        <li>Impact Predictor          <span id="predict" class="loading">Analyzing…</span></li>
+        <li>Recommendation Engine     <span class="done">✓ Complete</span></li>
+      </ul>
 
-<h4 class="pledgeTitle">
-<i data-lucide="snowflake"></i>
-No-AC Day Pledge
-</h4>
+      <div class="aiBox" id="aiRecommendationBox">
+        Loading AI recommendations...
+      </div>
+    </div>
 
-<div class="pledgeCard">
-🌿 I Used No AC Today
-</div>
+  </section>
 
-</div>
+  <!-- ── CHARTS ── -->
+  <section class="charts">
 
+    <div class="chartCard">
+      <h4>Weekly Carbon Reduction</h4>
+      <canvas id="lineChart"></canvas>
+    </div>
 
-<div class="card">
+    <div class="chartCard">
+      <h4>Activity Distribution</h4>
+      <canvas id="pieChart"></canvas>
+    </div>
 
-<h3><i data-lucide="brain"></i> AI Engine</h3>
+    <div class="chartCard">
+      <h4>Monthly Progress</h4>
+      <canvas id="barChart"></canvas>
+    </div>
 
-<ul class="ai">
-<li>Activity Classification <span class="done">✓ Complete</span></li>
-<li>Carbon Calculator <span class="done">✓ Complete</span></li>
-<li>Impact Predictor <span id="predict" class="loading">Analyzing…</span></li>
-<li>Recommendation Engine <span class="done">✓ Complete</span></li>
-</ul>
+    <div class="chartCard">
+      <h4>Platform Impact Growth</h4>
+      <canvas id="areaChart"></canvas>
+    </div>
 
-<div class="aiBox" id="aiRecommendationBox">
-Loading AI recommendations...
-</div>
+  </section>
 
-</div>
+  <!-- ── AI FUTURE IMPACT ── -->
+  <section class="future">
 
-</section>
+    <h3><i data-lucide="brain"></i> AI Future Impact Analysis</h3>
+    <p class="futureSub">Real-time projected impact based on platform data</p>
 
+    <div class="futureCards">
 
-<section class="charts">
+      <div class="fCard green">
+        <h2 id="co2">--</h2>
+        <span>Tons CO₂ Reduced / Year</span>
+      </div>
 
-<div class="chartCard">
-<h4>Weekly Carbon Reduction</h4>
-<canvas id="lineChart"></canvas>
-</div>
+      <div class="fCard blue">
+        <h2 id="aqi">--</h2>
+        <span>AQI Points Improved</span>
+      </div>
 
-<div class="chartCard">
-<h4>Activity Distribution</h4>
-<canvas id="pieChart"></canvas>
-</div>
+      <div class="fCard gold">
+        <h2 id="fuel">--</h2>
+        <span>Fuel Savings</span>
+      </div>
 
-<div class="chartCard">
-<h4>Monthly Progress</h4>
-<canvas id="barChart"></canvas>
-</div>
+    </div>
 
-<div class="chartCard">
-<h4>Platform Impact Growth</h4>
-<canvas id="areaChart"></canvas>
-</div>
-
-</section>
-
-
-<section class="future">
-
-<h3><i data-lucide="brain"></i> AI Future Impact Analysis</h3>
-
-<p class="futureSub">
-Real-time projected impact based on platform data
-</p>
-
-<div class="futureCards">
-
-<div class="fCard green">
-<h2 id="co2">--</h2>
-<span>Tons CO₂ Reduced / Year</span>
-</div>
-
-<div class="fCard blue">
-<h2 id="aqi">--</h2>
-<span>AQI Points Improved</span>
-</div>
-
-<div class="fCard gold">
-<h2 id="fuel">--</h2>
-<span>Fuel Savings</span>
-</div>
-
-</div>
-
-</section>
+  </section>
 
 </main>
 
