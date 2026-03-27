@@ -9,8 +9,8 @@
 <link rel="stylesheet" href="navbar.css">
 <link rel="stylesheet" href="toast.css">
 
-<!-- DM Sans + DM Serif Display (replaces Inter) -->
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<!-- Cormorant Garamond (headings) + DM Sans (body) — matches home page -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -21,6 +21,11 @@
 <div id="navbar-container"></div>
 
 <main class="container">
+
+  <!-- greeting pill — matches home page floating badge style -->
+  <div class="greeting-badge">
+    🌱 Welcome back — keep making a difference
+  </div>
 
   <!-- PAGE HEADER -->
   <h1>Impact Dashboard</h1>
@@ -81,8 +86,7 @@
       </div>
 
       <p class="distance">
-        Progress: <b id="progressKm">0.00</b> /
-        <b id="goalDisplay">5</b> km
+        Progress: <b id="progressKm">0.00</b> / <b id="goalDisplay">5</b> km
       </p>
 
       <input id="range" type="range" min="0" max="100" value="0" disabled>
