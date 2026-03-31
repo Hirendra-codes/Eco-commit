@@ -8,8 +8,7 @@
 <link rel="stylesheet" href="profile.css">
 <link rel="stylesheet" href="navbar.css">
 
-<!-- Plus Jakarta Sans + DM Sans — matches home & dashboard exactly -->
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,87 +17,196 @@
 
 <main class="container">
 
-  <!-- ── PROFILE CARD ── -->
-  <section class="profile-card">
+  <!-- ══════════════════════════════════
+       HERO PROFILE CARD
+  ══════════════════════════════════ -->
+  <section class="profile-hero">
 
+    <!-- gradient banner with mesh animation -->
+    <div class="profile-banner">
+      <div class="profile-banner-inner"></div>
+    </div>
+
+    <!-- settings gear -->
     <a href="settings.html" class="settings-btn" title="Settings">⚙</a>
 
-    <div class="avatar" id="profileAvatar">AR</div>
+    <!-- body below banner -->
+    <div class="profile-body">
 
-    <h2 id="profileName">User Name</h2>
-    <p class="location" id="profileLocation">📍 Location</p>
-
-    <div class="tag">🌱 Carbon Saver</div>
-
-    <div class="stats">
-
-      <div class="stat">
-        <h3 id="statCO2">24.6</h3>
-        <p>kg CO₂ Saved</p>
+      <!-- avatar + name row -->
+      <div class="avatar-wrap">
+        <div class="avatar" id="profileAvatar">AR</div>
+        <div class="avatar-info">
+          <h2 id="profileName">User Name</h2>
+          <p class="location" id="profileLocation">📍 Location</p>
+          <div class="tag">🌱 Carbon Saver</div>
+        </div>
       </div>
 
-      <div class="stat">
-        <h3 id="statStreak">12 🔥</h3>
-        <p>Day Streak</p>
-      </div>
+      <!-- stats -->
+      <div class="stats">
 
-      <div class="stat">
-        <h3 id="statPoints">540</h3>
-        <p>EcoPoints</p>
-      </div>
+        <div class="stat">
+          <h3 id="statCO2">24.6</h3>
+          <p>kg CO₂ Saved</p>
+        </div>
 
-    </div>
+        <div class="stat">
+          <h3 id="statStreak">12 🔥</h3>
+          <p>Day Streak</p>
+        </div>
 
-  </section>
+        <div class="stat">
+          <h3 id="statPoints">540</h3>
+          <p>EcoPoints</p>
+        </div>
 
-  <!-- ── BADGES ── -->
-  <section class="badge-section">
-
-    <h3 class="badge-title">🌿 Badges</h3>
-
-    <div class="badge-grid">
-
-      <div class="badge unlocked">
-        🌱
-        <h4>Green Starter</h4>
-        <small>Started your eco journey</small>
-        <span>✓ Unlocked</span>
-      </div>
-
-      <div class="badge unlocked">
-        🌍
-        <h4>Carbon Saver</h4>
-        <small>Saved 10kg CO₂</small>
-        <span>✓ Unlocked</span>
-      </div>
-
-      <div class="badge locked">
-        🏆
-        <h4>Eco Hero</h4>
-        <small>Saved 50kg CO₂</small>
-      </div>
-
-      <div class="badge locked">
-        🛡
-        <h4>Planet Guardian</h4>
-        <small>30 day streak</small>
-      </div>
-
-      <div class="badge locked">
-        ⚡
-        <h4>Zero Emission</h4>
-        <small>No car for a month</small>
-      </div>
-
-      <div class="badge locked">
-        👥
-        <h4>Community Leader</h4>
-        <small>Top 10 leaderboard</small>
       </div>
 
     </div>
 
   </section>
+
+  <!-- ══════════════════════════════════
+       TWO-COLUMN LOWER SECTION
+  ══════════════════════════════════ -->
+  <div class="lower-grid">
+
+    <!-- ── ECO LEVEL & PROGRESS ── -->
+    <div class="section-card">
+      <h3 class="section-title">🎯 Eco Level Progress</h3>
+
+      <div class="level-info">
+        <span class="level-label">Carbon Saver → Eco Hero</span>
+        <span class="level-value">42%</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill"></div>
+      </div>
+
+      <div class="milestones">
+
+        <div class="milestone">
+          <div class="milestone-dot done"></div>
+          <span class="milestone-text">Started eco journey</span>
+          <span class="milestone-pts">+50 pts</span>
+        </div>
+
+        <div class="milestone">
+          <div class="milestone-dot done"></div>
+          <span class="milestone-text">Saved first 10kg CO₂</span>
+          <span class="milestone-pts">+100 pts</span>
+        </div>
+
+        <div class="milestone">
+          <div class="milestone-dot next"></div>
+          <span class="milestone-text">Reach 50kg CO₂ saved</span>
+          <span class="milestone-pts">+250 pts</span>
+        </div>
+
+        <div class="milestone">
+          <div class="milestone-dot later"></div>
+          <span class="milestone-text">Complete 30-day streak</span>
+          <span class="milestone-pts">+500 pts</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── RECENT ACTIVITY ── -->
+    <div class="section-card">
+      <h3 class="section-title">⚡ Recent Activity</h3>
+
+      <div class="activity-list">
+
+        <div class="activity-item">
+          <div class="activity-icon green">🚶</div>
+          <div class="activity-text">
+            <strong>Walked 4.2 km</strong>
+            <span>Today · saved 0.8 kg CO₂</span>
+          </div>
+          <span class="activity-pts">+8 pts</span>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon blue">🚌</div>
+          <div class="activity-text">
+            <strong>Took the bus</strong>
+            <span>Yesterday · saved 1.2 kg CO₂</span>
+          </div>
+          <span class="activity-pts">+12 pts</span>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon green">❄️</div>
+          <div class="activity-text">
+            <strong>No-AC Day Pledge</strong>
+            <span>2 days ago · saved 0.5 kg CO₂</span>
+          </div>
+          <span class="activity-pts">+5 pts</span>
+        </div>
+
+        <div class="activity-item">
+          <div class="activity-icon gold">🚲</div>
+          <div class="activity-text">
+            <strong>Cycled 12 km</strong>
+            <span>3 days ago · saved 2.1 kg CO₂</span>
+          </div>
+          <span class="activity-pts">+20 pts</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── BADGES — full width ── -->
+    <div class="section-card full">
+      <h3 class="section-title">🌿 Badges</h3>
+
+      <div class="badge-grid">
+
+        <div class="badge unlocked">
+          🌱
+          <h4>Green Starter</h4>
+          <small>Started your eco journey</small>
+          <span>✓ Unlocked</span>
+        </div>
+
+        <div class="badge unlocked">
+          🌍
+          <h4>Carbon Saver</h4>
+          <small>Saved 10kg CO₂</small>
+          <span>✓ Unlocked</span>
+        </div>
+
+        <div class="badge locked">
+          🏆
+          <h4>Eco Hero</h4>
+          <small>Saved 50kg CO₂</small>
+        </div>
+
+        <div class="badge locked">
+          🛡
+          <h4>Planet Guardian</h4>
+          <small>30 day streak</small>
+        </div>
+
+        <div class="badge locked">
+          ⚡
+          <h4>Zero Emission</h4>
+          <small>No car for a month</small>
+        </div>
+
+        <div class="badge locked">
+          👥
+          <h4>Community Leader</h4>
+          <small>Top 10 leaderboard</small>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 
 </main>
 
