@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Settings - EcoCommit AI</title>
+<title>Settings — EcoCommit AI</title>
 
 <link rel="stylesheet" href="settings.css">
 <link rel="stylesheet" href="navbar.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -16,96 +17,291 @@
 
 <main class="settings-container">
 
-  <h2>Settings</h2>
-
-  <div class="settings-card">
-
-    <!-- ACCOUNT -->
-    <div class="section-title">Account</div>
-
-    <div class="setting-row">
-      <span>Full Name</span>
-      <input type="text" value="Alex Rivera" class="input-field">
-    </div>
-
-    <div class="setting-row">
-      <span>Email</span>
-      <input type="email" value="alex@email.com" class="input-field">
-    </div>
-
-    <div class="setting-row">
-      <span>Password</span>
-      <button class="action-btn">Change Password</button>
-    </div>
-
-    <hr>
-
-    <!-- PRIVACY -->
-    <div class="section-title">Privacy</div>
-
-    <div class="setting-row">
-      <span>Account Visibility</span>
-      <select class="input-field">
-        <option>Public</option>
-        <option>Private</option>
-      </select>
-    </div>
-
-    <div class="setting-row">
-      <span>Activity Status</span>
-      <label class="switch">
-        <input type="checkbox" checked>
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <hr>
-
-    <!-- NOTIFICATIONS -->
-    <div class="section-title">Notifications</div>
-
-    <div class="setting-row">
-      <span>Email Notifications</span>
-      <label class="switch">
-        <input type="checkbox" checked>
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <div class="setting-row">
-      <span>Reward Alerts</span>
-      <label class="switch">
-        <input type="checkbox" checked>
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <hr>
-
-    <!-- SECURITY -->
-    <div class="section-title">Security</div>
-
-    <div class="setting-row">
-      <span>Login Activity</span>
-      <button class="action-btn">View Sessions</button>
-    </div>
-
-    <div class="setting-row">
-      <span>Two-Factor Authentication</span>
-      <button class="action-btn">Enable</button>
-    </div>
-
-    <hr>
-
-    <!-- DANGER ZONE -->
-    <div class="section-title danger-text">Danger Zone</div>
-
-    <div class="danger-zone">
-      <button id="logoutBtn">Logout</button>
-      <button class="delete-btn">Delete Account</button>
-    </div>
-
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h2>Settings</h2>
+    <p>Manage your account, privacy, and preferences</p>
   </div>
+
+  <div class="settings-layout">
+
+    <!-- ══════════════════════════
+         SIDEBAR NAV
+    ══════════════════════════ -->
+    <aside class="settings-sidebar">
+
+      <a href="#account" class="sidebar-item active">
+        <span class="s-icon">👤</span> Account
+      </a>
+
+      <a href="#privacy" class="sidebar-item">
+        <span class="s-icon">🔒</span> Privacy
+      </a>
+
+      <a href="#notifications" class="sidebar-item">
+        <span class="s-icon">🔔</span> Notifications
+      </a>
+
+      <a href="#security" class="sidebar-item">
+        <span class="s-icon">🛡️</span> Security
+      </a>
+
+      <div class="sidebar-divider"></div>
+
+      <a href="#danger" class="sidebar-item danger">
+        <span class="s-icon">⚠️</span> Danger Zone
+      </a>
+
+    </aside>
+
+    <!-- ══════════════════════════
+         SETTINGS PANELS
+    ══════════════════════════ -->
+    <div class="settings-panels">
+
+      <!-- ── ACCOUNT ── -->
+      <div class="settings-panel" id="account">
+
+        <div class="panel-header">
+          <div class="panel-icon">👤</div>
+          <div class="panel-header-text">
+            <h3>Account</h3>
+            <p>Update your personal information</p>
+          </div>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Full Name</strong>
+              <span>Your display name across EcoCommit</span>
+            </div>
+            <input type="text" value="Alex Rivera" class="input-field" id="settingName">
+          </div>
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Email Address</strong>
+              <span>Used for login and notifications</span>
+            </div>
+            <input type="email" value="alex@email.com" class="input-field" id="settingEmail">
+          </div>
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Password</strong>
+              <span>Last changed 3 months ago</span>
+            </div>
+            <button class="action-btn">Change Password</button>
+          </div>
+
+        </div>
+
+        <div class="panel-footer">
+          <button class="action-btn outline">Cancel</button>
+          <button class="save-btn" id="saveAccountBtn">Save Changes</button>
+        </div>
+
+      </div>
+
+      <!-- ── PRIVACY ── -->
+      <div class="settings-panel" id="privacy">
+
+        <div class="panel-header">
+          <div class="panel-icon">🔒</div>
+          <div class="panel-header-text">
+            <h3>Privacy</h3>
+            <p>Control who sees your activity</p>
+          </div>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Account Visibility</strong>
+              <span>Who can view your profile and stats</span>
+            </div>
+            <select class="input-field">
+              <option>Public</option>
+              <option>Friends Only</option>
+              <option>Private</option>
+            </select>
+          </div>
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Activity Status</strong>
+              <span>Show when you're actively tracking</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Leaderboard Appearance</strong>
+              <span>Show your name on public leaderboards</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="panel-footer">
+          <button class="save-btn" id="savePrivacyBtn">Save Changes</button>
+        </div>
+
+      </div>
+
+      <!-- ── NOTIFICATIONS ── -->
+      <div class="settings-panel" id="notifications">
+
+        <div class="panel-header">
+          <div class="panel-icon">🔔</div>
+          <div class="panel-header-text">
+            <h3>Notifications</h3>
+            <p>Choose what you want to be notified about</p>
+          </div>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Email Notifications</strong>
+              <span>Weekly summaries and important updates</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Reward Alerts</strong>
+              <span>Get notified when you earn EcoPoints</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Streak Reminders</strong>
+              <span>Daily nudge to keep your streak alive</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Community Updates</strong>
+              <span>News from the EcoCommit community</span>
+            </div>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="panel-footer">
+          <button class="save-btn" id="saveNotifBtn">Save Changes</button>
+        </div>
+
+      </div>
+
+      <!-- ── SECURITY ── -->
+      <div class="settings-panel" id="security">
+
+        <div class="panel-header">
+          <div class="panel-icon">🛡️</div>
+          <div class="panel-header-text">
+            <h3>Security</h3>
+            <p>Protect your account</p>
+          </div>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Login Activity</strong>
+              <span>View recent sign-ins to your account</span>
+            </div>
+            <button class="action-btn outline">View Sessions</button>
+          </div>
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Two-Factor Authentication</strong>
+              <span>Add an extra layer of security</span>
+            </div>
+            <button class="action-btn">Enable 2FA</button>
+          </div>
+
+          <div class="setting-row">
+            <div class="row-label">
+              <strong>Connected Devices</strong>
+              <span>Manage devices logged into your account</span>
+            </div>
+            <button class="action-btn outline">Manage</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ── DANGER ZONE ── -->
+      <div class="settings-panel danger-panel" id="danger">
+
+        <div class="panel-header">
+          <div class="panel-icon">⚠️</div>
+          <div class="panel-header-text">
+            <h3>Danger Zone</h3>
+            <p>Irreversible actions — proceed with caution</p>
+          </div>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="danger-row">
+            <div class="row-label">
+              <strong>Sign Out</strong>
+              <span>Log out of your current session</span>
+            </div>
+            <button class="btn-danger outline" id="logoutBtn">Logout</button>
+          </div>
+
+          <div class="danger-row">
+            <div class="row-label">
+              <strong>Delete Account</strong>
+              <span>Permanently delete your account and all data</span>
+            </div>
+            <button class="btn-danger delete-btn">Delete Account</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div><!-- end panels -->
+
+  </div><!-- end layout -->
 
 </main>
 
@@ -113,5 +309,6 @@
 <script src="api.js"></script>
 <script src="settings.js"></script>
 <script src="navbar.js"></script>
+
 </body>
 </html>
