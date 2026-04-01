@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Rewards & Gamification</title>
+<title>Rewards & Gamification — EcoCommit AI</title>
 
 <link rel="stylesheet" href="rewards.css">
 <link rel="stylesheet" href="navbar.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -20,119 +19,132 @@
 
 <main class="container">
 
-<h1>Rewards & Gamification</h1>
+  <h1>Rewards & Gamification</h1>
 
-<!-- ECO POINTS -->
-<section class="card ecoPoints">
+  <!-- ══════════════════════════════════
+       ECO POINTS CARD
+  ══════════════════════════════════ -->
+  <section class="card ecoPoints">
 
-<div class="ecoLeft">
+    <div class="ecoLeft">
 
-<h3><i data-lucide="star"></i> EcoPoints Balance</h3>
+      <h3><i data-lucide="star"></i> EcoPoints Balance</h3>
 
-<h2 id="points">0</h2>
-<p>460 points to next badge</p>
+      <h2 id="points">0</h2>
+      <p>460 points to next badge</p>
 
-<div class="progress">
-<div class="progressFill"></div>
-</div>
+      <div class="progress">
+        <div class="progressFill"></div>
+      </div>
 
-<button class="claimBtn" onclick="window.location.href='claim-reward.html'">
-🎁 Claim Reward
-</button>
+      <button class="claimBtn" onclick="window.location.href='claim-reward.html'">
+        🎁 Claim Reward
+      </button>
 
-</div>
+    </div>
 
-<div class="ecoRight" id="calendar"></div>
+    <!-- Calendar — JS in rewards.js fills #calendar -->
+    <div class="ecoRight">
+      <p class="cal-label">Activity This Month</p>
+      <div class="cal-grid" id="calendar"></div>
+    </div>
 
-</section>
+  </section>
 
+  <!-- ══════════════════════════════════
+       LEADERBOARD
+  ══════════════════════════════════ -->
+  <section class="card leaderboard">
 
-<!-- LEADERBOARD -->
-<section class="card leaderboard">
+    <div class="leaderHeader">
+      <h3><i data-lucide="trophy"></i> Leaderboard</h3>
+      <select id="leaderFilter">
+        <option value="city">City</option>
+        <option value="state">State</option>
+        <option value="country">Country</option>
+        <option value="global">Global</option>
+      </select>
+    </div>
 
-<div class="leaderHeader">
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>User</th>
+          <th id="locationHeader">City</th>
+          <th>Points</th>
+        </tr>
+      </thead>
 
-<h3><i data-lucide="trophy"></i> Leaderboard</h3>
+      <tbody id="leaderboardBody">
 
-<select id="leaderFilter">
-<option value="city">City</option>
-<option value="state">State</option>
-<option value="country">Country</option>
-<option value="global">Global</option>
-</select>
+        <tr>
+          <td>🥇</td>
+          <td>Priya S.</td>
+          <td>Mumbai</td>
+          <td>4,200</td>
+        </tr>
 
-</div>
+        <tr>
+          <td>🥈</td>
+          <td>Carlos M.</td>
+          <td>Madrid</td>
+          <td>3,850</td>
+        </tr>
 
-<table>
+        <tr class="you">
+          <td>🥉</td>
+          <td>Alex R. <span>(You)</span></td>
+          <td>San Francisco</td>
+          <td>2,540</td>
+        </tr>
 
-<thead>
-<tr>
-<th>Rank</th>
-<th>User</th>
-<th id="locationHeader">City</th>
-<th>Points</th>
-</tr>
-</thead>
+        <tr>
+          <td class="rank-num">4</td>
+          <td>Yuki T.</td>
+          <td>Tokyo</td>
+          <td>2,310</td>
+        </tr>
 
-<tbody id="leaderboardBody">
+        <tr>
+          <td class="rank-num">5</td>
+          <td>Emma L.</td>
+          <td>Berlin</td>
+          <td>2,100</td>
+        </tr>
 
-<tr>
-<td>🥇</td>
-<td>Priya S.</td>
-<td>Mumbai</td>
-<td>4,200</td>
-</tr>
+      </tbody>
+    </table>
 
-<tr>
-<td>🥈</td>
-<td>Carlos M.</td>
-<td>Madrid</td>
-<td>3,850</td>
-</tr>
+  </section>
 
-<tr class="you">
-<td>🥉</td>
-<td>Alex R. <span>(You)</span></td>
-<td>San Francisco</td>
-<td>2,540</td>
-</tr>
+  <!-- ══════════════════════════════════
+       GREEN CERTIFICATE
+  ══════════════════════════════════ -->
+  <section class="card certificate">
 
-<tr>
-<td>4</td>
-<td>Yuki T.</td>
-<td>Tokyo</td>
-<td>2,310</td>
-</tr>
+    <h3><i data-lucide="award"></i> Green Certificate</h3>
 
-<tr>
-<td>5</td>
-<td>Emma L.</td>
-<td>Berlin</td>
-<td>2,100</td>
-</tr>
+    <p>Generate a verified climate action certificate for your contributions.</p>
 
-</tbody>
+    <div class="cert-inner">
 
-</table>
+      <div class="cert-badge">
+        <div class="cert-badge-icon">🌍</div>
+        <div class="cert-badge-text">
+          <strong>Verified Climate Contributor</strong>
+          <span>Blockchain-secured · EcoCommit AI</span>
+        </div>
+      </div>
 
-</section>
+      <button class="generate">
+        <i data-lucide="sparkles"></i>
+        Generate Climate Certificate
+      </button>
 
+    </div>
 
-<!-- CERTIFICATE -->
-<section class="card certificate">
-
-<h3><i data-lucide="award"></i> Green Certificate</h3>
-
-<p>
-Generate a verified climate action certificate for your contributions.
-</p>
-
-<button class="generate">
-<i data-lucide="sparkles"></i>
-Generate Climate Certificate
-</button>
-
-</section>
+  </section>
 
 </main>
 
@@ -140,6 +152,8 @@ Generate Climate Certificate
 <script src="api.js"></script>
 <script src="rewards.js"></script>
 <script src="navbar.js"></script>
+
+<script>lucide.createIcons();</script>
 
 </body>
 </html>
