@@ -19,132 +19,233 @@
 
 <main class="container">
 
-  <h1>Rewards & Gamification</h1>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Rewards & Gamification</h1>
+    <div class="header-badge">🌱 Season 3 Active</div>
+  </div>
 
   <!-- ══════════════════════════════════
-       ECO POINTS CARD
+       HERO STAT PILLS
   ══════════════════════════════════ -->
-  <section class="card ecoPoints">
+  <div class="stats-row">
 
-    <div class="ecoLeft">
-
-      <h3><i data-lucide="star"></i> EcoPoints Balance</h3>
-
-      <h2 id="points">0</h2>
-      <p>460 points to next badge</p>
-
-      <div class="progress">
-        <div class="progressFill"></div>
+    <div class="stat-pill green-pill">
+      <div class="stat-pill-icon">⭐</div>
+      <div class="stat-pill-text">
+        <strong id="points">0</strong>
+        <span>EcoPoints Earned</span>
       </div>
-
-      <button class="claimBtn" onclick="window.location.href='claim-reward.html'">
-        🎁 Claim Reward
-      </button>
-
     </div>
 
-    <!-- Calendar — JS in rewards.js fills #calendar -->
-    <div class="ecoRight">
-      <p class="cal-label">Activity This Month</p>
-      <div class="cal-grid" id="calendar"></div>
+    <div class="stat-pill gold-pill">
+      <div class="stat-pill-icon">🔥</div>
+      <div class="stat-pill-text">
+        <strong>12</strong>
+        <span>Day Streak</span>
+      </div>
     </div>
 
-  </section>
+    <div class="stat-pill blue-pill">
+      <div class="stat-pill-icon">🏅</div>
+      <div class="stat-pill-text">
+        <strong>#3</strong>
+        <span>City Rank</span>
+      </div>
+    </div>
+
+  </div>
 
   <!-- ══════════════════════════════════
-       LEADERBOARD
+       MAIN TWO-COLUMN GRID
   ══════════════════════════════════ -->
-  <section class="card leaderboard">
+  <div class="main-grid">
 
-    <div class="leaderHeader">
-      <h3><i data-lucide="trophy"></i> Leaderboard</h3>
-      <select id="leaderFilter">
-        <option value="city">City</option>
-        <option value="state">State</option>
-        <option value="country">Country</option>
-        <option value="global">Global</option>
-      </select>
-    </div>
+    <!-- LEFT COLUMN -->
+    <div>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>User</th>
-          <th id="locationHeader">City</th>
-          <th>Points</th>
-        </tr>
-      </thead>
+      <!-- ECO POINTS CARD -->
+      <div class="card ecoPoints">
 
-      <tbody id="leaderboardBody">
-
-        <tr>
-          <td>🥇</td>
-          <td>Priya S.</td>
-          <td>Mumbai</td>
-          <td>4,200</td>
-        </tr>
-
-        <tr>
-          <td>🥈</td>
-          <td>Carlos M.</td>
-          <td>Madrid</td>
-          <td>3,850</td>
-        </tr>
-
-        <tr class="you">
-          <td>🥉</td>
-          <td>Alex R. <span>(You)</span></td>
-          <td>San Francisco</td>
-          <td>2,540</td>
-        </tr>
-
-        <tr>
-          <td class="rank-num">4</td>
-          <td>Yuki T.</td>
-          <td>Tokyo</td>
-          <td>2,310</td>
-        </tr>
-
-        <tr>
-          <td class="rank-num">5</td>
-          <td>Emma L.</td>
-          <td>Berlin</td>
-          <td>2,100</td>
-        </tr>
-
-      </tbody>
-    </table>
-
-  </section>
-
-  <!-- ══════════════════════════════════
-       GREEN CERTIFICATE
-  ══════════════════════════════════ -->
-  <section class="card certificate">
-
-    <h3><i data-lucide="award"></i> Green Certificate</h3>
-
-    <p>Generate a verified climate action certificate for your contributions.</p>
-
-    <div class="cert-inner">
-
-      <div class="cert-badge">
-        <div class="cert-badge-icon">🌍</div>
-        <div class="cert-badge-text">
-          <strong>Verified Climate Contributor</strong>
-          <span>Blockchain-secured · EcoCommit AI</span>
+        <div class="card-header">
+          <div class="card-title">
+            <i data-lucide="star"></i> EcoPoints Balance
+          </div>
         </div>
+
+        <div class="eco-body">
+
+          <div class="eco-balance-row">
+            <h2 id="pointsLarge">0</h2>
+            <span class="eco-unit">pts</span>
+          </div>
+
+          <p class="eco-next">460 points to next badge — keep going! 🚀</p>
+
+          <div class="progress">
+            <div class="progressFill"></div>
+          </div>
+
+          <div class="progress-labels">
+            <span>Carbon Saver</span>
+            <span>Eco Hero (500 pts)</span>
+          </div>
+
+          <button class="claimBtn" onclick="window.location.href='claim-reward.html'">
+            🎁 &nbsp;Claim Your Reward
+          </button>
+
+        </div>
+
       </div>
 
-      <button class="generate">
-        <i data-lucide="sparkles"></i>
-        Generate Climate Certificate
-      </button>
+      <!-- LEADERBOARD -->
+      <div class="card leaderboard" style="margin-top:22px;">
 
-    </div>
+        <div class="card-header">
+          <div class="card-title">
+            <i data-lucide="trophy"></i> Leaderboard
+          </div>
+          <select id="leaderFilter">
+            <option value="city">City</option>
+            <option value="state">State</option>
+            <option value="country">Country</option>
+            <option value="global">Global</option>
+          </select>
+        </div>
 
-  </section>
+        <!-- TOP 3 PODIUM -->
+        <div class="podium">
+
+          <div class="podium-place first">
+            <div class="podium-medal">🥇</div>
+            <div class="podium-avatar">PS</div>
+            <div class="podium-name">Priya S.</div>
+            <div class="podium-city">Mumbai</div>
+            <div class="podium-pts">4,200</div>
+          </div>
+
+          <div class="podium-place second">
+            <div class="podium-medal">🥈</div>
+            <div class="podium-avatar">CM</div>
+            <div class="podium-name">Carlos M.</div>
+            <div class="podium-city">Madrid</div>
+            <div class="podium-pts">3,850</div>
+          </div>
+
+          <div class="podium-place third">
+            <div class="podium-medal">🥉</div>
+            <div class="podium-avatar">AR</div>
+            <div class="podium-name">Alex R.</div>
+            <div class="podium-city">San Francisco</div>
+            <div class="podium-pts">2,540</div>
+          </div>
+
+        </div>
+
+        <!-- REST OF TABLE -->
+        <div class="leader-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>User</th>
+                <th id="locationHeader">City</th>
+                <th>Points</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboardBody">
+              <tr class="you">
+                <td>🥉</td>
+                <td>Alex R. <span>(You)</span></td>
+                <td>San Francisco</td>
+                <td>2,540</td>
+              </tr>
+              <tr>
+                <td class="rank-num">4</td>
+                <td>Yuki T.</td>
+                <td>Tokyo</td>
+                <td>2,310</td>
+              </tr>
+              <tr>
+                <td class="rank-num">5</td>
+                <td>Emma L.</td>
+                <td>Berlin</td>
+                <td>2,100</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div><!-- end left column -->
+
+    <!-- RIGHT COLUMN -->
+    <div>
+
+      <!-- CALENDAR CARD -->
+      <div class="card calCard">
+
+        <div class="card-header">
+          <div class="card-title">
+            <i data-lucide="calendar"></i> Activity Calendar
+          </div>
+        </div>
+
+        <div class="cal-body">
+
+          <div class="cal-month" id="calMonthLabel">April 2026</div>
+
+          <div class="cal-weekdays">
+            <span>S</span><span>M</span><span>T</span>
+            <span>W</span><span>T</span><span>F</span><span>S</span>
+          </div>
+
+          <div class="cal-grid" id="calendar"></div>
+
+          <div class="streak-row">
+            🔥 12-day streak — amazing work!
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- CERTIFICATE CARD -->
+      <div class="card certificate" style="margin-top:22px;">
+
+        <div class="card-header">
+          <div class="card-title">
+            <i data-lucide="award"></i> Green Certificate
+          </div>
+        </div>
+
+        <div class="cert-body">
+
+          <p>Generate a verified, blockchain-secured climate action certificate for your contributions.</p>
+
+          <div class="cert-preview">
+            <div class="cert-icon">📜</div>
+            <div class="cert-info">
+              <strong>Verified Climate Contributor</strong>
+              <span>Blockchain-secured · EcoCommit AI</span>
+            </div>
+            <div class="cert-seal">✦</div>
+          </div>
+
+          <button class="generate">
+            <i data-lucide="sparkles"></i>
+            Generate Certificate
+          </button>
+
+        </div>
+
+      </div>
+
+    </div><!-- end right column -->
+
+  </div><!-- end main-grid -->
 
 </main>
 
@@ -152,7 +253,6 @@
 <script src="api.js"></script>
 <script src="rewards.js"></script>
 <script src="navbar.js"></script>
-
 <script>lucide.createIcons();</script>
 
 </body>
