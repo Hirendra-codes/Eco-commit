@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<title>Tree Donation</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plant Trees — EcoCommit AI</title>
 
 <link rel="stylesheet" href="navbar.css">
 <link rel="stylesheet" href="donation.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,41 +17,169 @@
 
 <main class="container">
 
-<h1>Plant Trees</h1>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Plant Trees 🌳</h1>
+    <div class="page-tag">🌱 3 Partners Available</div>
+  </div>
 
-<section class="grid">
+  <!-- ══════════════════════════════════
+       HERO BANNER
+  ══════════════════════════════════ -->
+  <div class="hero-banner">
+    <div class="hero-inner">
 
-<div class="card">
+      <div class="hero-dots"></div>
 
-<h3>Eden Reforestation</h3>
+      <!-- left -->
+      <div class="hero-left">
+        <div class="hero-eyebrow">Real Impact · Verified Partners</div>
+        <h2>Turn Your Points Into<br><span>Living Forests</span></h2>
+        <p class="hero-desc">
+          Every 100 EcoPoints you donate plants a real, verified tree through our global reforestation partners. Your actions create permanent change.
+        </p>
+        <div class="impact-pills">
+          <div class="impact-pill">🌍 38 Countries</div>
+          <div class="impact-pill">✅ Blockchain Verified</div>
+          <div class="impact-pill">♻️ Carbon Offset</div>
+        </div>
+      </div>
 
-<p>100 EcoPoints = 1 Tree</p>
+      <!-- right: animated forest bars -->
+      <div class="hero-right">
+        <div class="forest-visual">
+          <div class="tree-bar"></div>
+          <div class="tree-bar"></div>
+          <div class="tree-bar"></div>
+          <div class="tree-bar"></div>
+          <div class="tree-bar"></div>
+          <div class="tree-bar"></div>
+          <div class="tree-bar"></div>
+        </div>
+        <div class="forest-label">1.2M+</div>
+        <div class="forest-sub">Trees Planted Globally</div>
+      </div>
 
-<button onclick="donateTree(100)">Plant Tree</button>
+    </div>
+  </div>
 
-</div>
+  <!-- ══════════════════════════════════
+       GLOBAL IMPACT STATS
+  ══════════════════════════════════ -->
+  <div class="impact-strip">
 
-<div class="card">
+    <div class="impact-stat">
+      <div class="impact-stat-icon">🌳</div>
+      <div class="impact-stat-text">
+        <strong>1.2M+</strong>
+        <span>Trees Planted</span>
+      </div>
+    </div>
 
-<h3>One Tree Planted</h3>
+    <div class="impact-stat">
+      <div class="impact-stat-icon">🌍</div>
+      <div class="impact-stat-text">
+        <strong>38</strong>
+        <span>Countries Covered</span>
+      </div>
+    </div>
 
-<p>100 EcoPoints = 1 Tree</p>
+    <div class="impact-stat">
+      <div class="impact-stat-icon">💨</div>
+      <div class="impact-stat-text">
+        <strong>4,800t</strong>
+        <span>CO₂ Offset</span>
+      </div>
+    </div>
 
-<button onclick="donateTree(100)">Plant Tree</button>
+  </div>
 
-</div>
+  <!-- ══════════════════════════════════
+       ORG CARDS
+  ══════════════════════════════════ -->
+  <div class="section-label">Choose Your Reforestation Partner</div>
 
-<div class="card">
+  <section class="grid">
 
-<h3>Plant For The Planet</h3>
+    <!-- EDEN REFORESTATION -->
+    <div class="card">
+      <div class="card-visual">
+        <div class="org-emoji">🌱</div>
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+      </div>
+      <div class="card-body">
+        <div class="org-tag">🏆 Most Popular</div>
+        <h3>Eden Reforestation</h3>
+        <p>Restores forests in Madagascar, Nepal, and Mozambique while creating employment for local communities.</p>
+        <div class="cost-row">
+          <div class="cost-left">
+            <span class="cost-label">Cost per Tree</span>
+            <span class="cost-value">100 pts</span>
+          </div>
+          <span class="cost-eq">= 1 Real Tree 🌳</span>
+        </div>
+        <button onclick="donateTree(100)">🌱 &nbsp;Plant Tree</button>
+      </div>
+    </div>
 
-<p>100 EcoPoints = 1 Tree</p>
+    <!-- ONE TREE PLANTED -->
+    <div class="card">
+      <div class="card-visual">
+        <div class="org-emoji">🌍</div>
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+      </div>
+      <div class="card-body">
+        <div class="org-tag">🌐 Global Reach</div>
+        <h3>One Tree Planted</h3>
+        <p>Plants trees across North America, Latin America, Asia, and Africa with full GPS-tracked transparency.</p>
+        <div class="cost-row">
+          <div class="cost-left">
+            <span class="cost-label">Cost per Tree</span>
+            <span class="cost-value">100 pts</span>
+          </div>
+          <span class="cost-eq">= 1 Real Tree 🌳</span>
+        </div>
+        <button onclick="donateTree(100)">🌍 &nbsp;Plant Tree</button>
+      </div>
+    </div>
 
-<button onclick="donateTree(100)">Plant Tree</button>
+    <!-- PLANT FOR THE PLANET -->
+    <div class="card">
+      <div class="card-visual">
+        <div class="org-emoji">🏔️</div>
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+      </div>
+      <div class="card-body">
+        <div class="org-tag">👶 Youth-Led</div>
+        <h3>Plant For The Planet</h3>
+        <p>A youth-led initiative planting trees in the Yucatán, Mexico, with a goal of one trillion trees worldwide.</p>
+        <div class="cost-row">
+          <div class="cost-left">
+            <span class="cost-label">Cost per Tree</span>
+            <span class="cost-value">100 pts</span>
+          </div>
+          <span class="cost-eq">= 1 Real Tree 🌳</span>
+        </div>
+        <button onclick="donateTree(100)">🏔️ &nbsp;Plant Tree</button>
+      </div>
+    </div>
 
-</div>
+  </section>
 
-</section>
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-icon">🔒</div>
+    <div class="info-text">
+      All donations are <strong>blockchain-verified</strong> and traceable. You'll receive a certificate for every tree planted.
+      Trees are planted within <strong>30 days</strong> of your donation through our verified partner network.
+    </div>
+  </div>
 
 </main>
 
