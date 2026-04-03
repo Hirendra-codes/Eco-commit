@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<title>Eco Marketplace</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eco Marketplace — EcoCommit AI</title>
 
 <link rel="stylesheet" href="navbar.css">
 <link rel="stylesheet" href="marketplace.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,29 +17,197 @@
 
 <main class="container">
 
-<h1>Eco Marketplace</h1>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Eco Marketplace 🛍️</h1>
+    <div class="page-tag">🌿 3 Products Available</div>
+  </div>
 
-<section class="grid">
+  <!-- ══════════════════════════════════
+       HERO SHOP BANNER
+  ══════════════════════════════════ -->
+  <div class="hero-banner">
+    <div class="hero-inner">
 
-<div class="card">
-<h3>Bamboo Toothbrush</h3>
-<p>200 EcoPoints</p>
-<button onclick="buyProduct(200)">Redeem</button>
-</div>
+      <div class="hero-dots"></div>
 
-<div class="card">
-<h3>Reusable Bottle</h3>
-<p>350 EcoPoints</p>
-<button onclick="buyProduct(350)">Redeem</button>
-</div>
+      <!-- left -->
+      <div class="hero-left">
+        <div class="hero-eyebrow">Eco Products · Verified Sustainable</div>
+        <h2>Shop Green,<br><span>Live Sustainably</span></h2>
+        <p class="hero-desc">
+          Redeem your EcoPoints for certified sustainable products. Every item is verified eco-friendly, plastic-free, and ethically sourced.
+        </p>
+        <div class="impact-pills">
+          <div class="impact-pill">🌿 Plastic-Free</div>
+          <div class="impact-pill">♻️ Ethically Sourced</div>
+          <div class="impact-pill">🚚 Carbon-Neutral Delivery</div>
+        </div>
+      </div>
 
-<div class="card">
-<h3>Indoor Plant</h3>
-<p>600 EcoPoints</p>
-<button onclick="buyProduct(600)">Redeem</button>
-</div>
+      <!-- right: floating product shelf -->
+      <div class="hero-right">
+        <div class="shelf-wrap">
+          <div class="shelf-item">
+            <div class="shelf-emoji">🪥</div>
+            <div class="shelf-pts">200 pts</div>
+          </div>
+          <div class="shelf-item">
+            <div class="shelf-emoji">🌿</div>
+            <div class="shelf-pts">600 pts</div>
+          </div>
+          <div class="shelf-item">
+            <div class="shelf-emoji">🧴</div>
+            <div class="shelf-pts">350 pts</div>
+          </div>
+        </div>
+        <div class="hero-stat-label">Starting from 200 pts</div>
+      </div>
 
-</section>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       SHOP STATS STRIP
+  ══════════════════════════════════ -->
+  <div class="stats-strip">
+
+    <div class="stat-block">
+      <div class="stat-icon green">🌿</div>
+      <div class="stat-text">
+        <strong>100%</strong>
+        <span>Eco-Certified Products</span>
+      </div>
+    </div>
+
+    <div class="stat-block">
+      <div class="stat-icon purple">🛍️</div>
+      <div class="stat-text">
+        <strong>200 pts</strong>
+        <span>Minimum to Redeem</span>
+      </div>
+    </div>
+
+    <div class="stat-block">
+      <div class="stat-icon gold">🚚</div>
+      <div class="stat-text">
+        <strong>Free</strong>
+        <span>Carbon-Neutral Delivery</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       PRODUCT CARDS
+  ══════════════════════════════════ -->
+  <div class="section-label">Redeem Your EcoPoints</div>
+
+  <section class="grid">
+
+    <!-- BAMBOO TOOTHBRUSH -->
+    <div class="card bamboo-card">
+      <div class="card-visual">
+        <div class="stock-bar">
+          <div class="stock-dot green"></div>
+          <span class="stock-text green">In Stock</span>
+        </div>
+        <div class="product-emoji">🪥</div>
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+      </div>
+      <div class="card-body">
+        <div class="rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-count">(128 reviews)</span>
+        </div>
+        <h3>Bamboo Toothbrush</h3>
+        <p>100% biodegradable bamboo handle with BPA-free bristles. Replaces 4 plastic toothbrushes per year.</p>
+        <div class="eco-badges">
+          <span class="eco-badge">🌱 Biodegradable</span>
+          <span class="eco-badge">♻️ Plastic-Free</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-label">EcoPoints Required</span>
+          <span class="cost-value">200 pts</span>
+        </div>
+        <button onclick="buyProduct(200)">🪥 &nbsp;Redeem Now</button>
+      </div>
+    </div>
+
+    <!-- REUSABLE BOTTLE -->
+    <div class="card bottle-card">
+      <div class="card-visual">
+        <div class="stock-bar">
+          <div class="stock-dot gold"></div>
+          <span class="stock-text gold">Low Stock</span>
+        </div>
+        <div class="product-emoji">🧴</div>
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+      </div>
+      <div class="card-body">
+        <div class="rating">
+          <span class="stars">★★★★★</span>
+          <span class="rating-count">(94 reviews)</span>
+        </div>
+        <h3>Reusable Bottle</h3>
+        <p>Insulated stainless steel bottle. Keeps drinks cold for 24h. Eliminates 167 plastic bottles per year.</p>
+        <div class="eco-badges">
+          <span class="eco-badge">🌊 Ocean-Safe</span>
+          <span class="eco-badge">🔄 Reusable</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-label">EcoPoints Required</span>
+          <span class="cost-value">350 pts</span>
+        </div>
+        <button onclick="buyProduct(350)">🧴 &nbsp;Redeem Now</button>
+      </div>
+    </div>
+
+    <!-- INDOOR PLANT -->
+    <div class="card plant-card">
+      <div class="card-visual">
+        <div class="stock-bar">
+          <div class="stock-dot purple"></div>
+          <span class="stock-text purple">Popular</span>
+        </div>
+        <div class="product-emoji">🌿</div>
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+      </div>
+      <div class="card-body">
+        <div class="rating">
+          <span class="stars">★★★★☆</span>
+          <span class="rating-count">(76 reviews)</span>
+        </div>
+        <h3>Indoor Plant</h3>
+        <p>Air-purifying potted plant delivered in a compostable pot. Improves indoor air quality by up to 25%.</p>
+        <div class="eco-badges">
+          <span class="eco-badge">🌬️ Air Purifying</span>
+          <span class="eco-badge">🪴 Compostable Pot</span>
+        </div>
+        <div class="cost-row">
+          <span class="cost-label">EcoPoints Required</span>
+          <span class="cost-value">600 pts</span>
+        </div>
+        <button onclick="buyProduct(600)">🌿 &nbsp;Redeem Now</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-icon">🚚</div>
+    <div class="info-text">
+      All products are shipped with <strong>carbon-neutral delivery</strong> within 5–7 business days.
+      Items are packaged in <strong>100% recycled and compostable materials</strong>. Points are deducted only after order confirmation.
+    </div>
+  </div>
 
 </main>
 
