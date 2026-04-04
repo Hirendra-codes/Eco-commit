@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Claim Rewards</title>
+<title>Claim Rewards — EcoCommit AI</title>
 
 <link rel="stylesheet" href="navbar.css">
 <link rel="stylesheet" href="claim-reward.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,36 +17,162 @@
 
 <main class="container">
 
-<h1>Claim Rewards</h1>
+  <!-- ── PAGE HEADER ── -->
+  <div class="page-header">
+    <h1>Claim Rewards</h1>
+    <div class="page-tag">🎁 3 Rewards Available</div>
+  </div>
 
-<div class="pointsCard">
+  <!-- ══════════════════════════════════
+       HERO POINTS BANNER
+  ══════════════════════════════════ -->
+  <div class="pointsCard">
+    <div class="points-banner">
 
-<h3>Your EcoPoints</h3>
-<h2 id="points">2540</h2>
+      <div class="points-banner-dots"></div>
 
-</div>
+      <!-- left: balance -->
+      <div class="points-left">
+        <div class="points-label">Your EcoPoints Balance</div>
 
-<section class="grid">
+        <div class="points-value">
+          <h2 id="points">2540</h2>
+          <span class="points-unit">pts</span>
+        </div>
 
-<div class="card">
-<h3>🌱 Tree Donation</h3>
-<p>Donate EcoPoints to plant trees.</p>
-<button onclick="goDonation()">Donate Trees</button>
-</div>
+        <p class="points-sub">
+          <strong>460 pts</strong> to next badge — you're almost there! 🚀
+        </p>
 
-<div class="card">
-<h3>🎫 Travel Vouchers</h3>
-<p>Claim transport discounts.</p>
-<button onclick="goVoucher()">Get Voucher</button>
-</div>
+        <div class="level-row">
+          <div class="level-pill active">✓ Green Starter</div>
+          <div class="level-pill active">✓ Carbon Saver</div>
+          <div class="level-pill">🔒 Eco Hero</div>
+        </div>
+      </div>
 
-<div class="card">
-<h3>🛍 Eco Marketplace</h3>
-<p>Buy eco-friendly products.</p>
-<button onclick="goMarket()">Open Store</button>
-</div>
+      <!-- right: circular progress ring -->
+      <div class="points-right">
+        <div class="ring-wrap">
+          <svg class="ring-svg" viewBox="0 0 120 120">
+            <defs>
+              <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%"   stop-color="#74c69d"/>
+                <stop offset="100%" stop-color="#40916c"/>
+              </linearGradient>
+            </defs>
+            <circle class="ring-track" cx="60" cy="60" r="54"/>
+            <circle class="ring-fill"  cx="60" cy="60" r="54"/>
+          </svg>
+          <div class="ring-center">
+            <div class="ring-pct">70%</div>
+            <div class="ring-sub">to<br>Eco Hero</div>
+          </div>
+        </div>
+      </div>
 
-</section>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       HOW IT WORKS STRIP
+  ══════════════════════════════════ -->
+  <div class="how-strip">
+
+    <div class="how-step">
+      <div class="how-num">1</div>
+      <div class="how-text">
+        <strong>Earn EcoPoints</strong>
+        <span>Track daily eco-activities</span>
+      </div>
+    </div>
+
+    <div class="how-step">
+      <div class="how-num">2</div>
+      <div class="how-text">
+        <strong>Choose a Reward</strong>
+        <span>Pick from trees, vouchers, or store</span>
+      </div>
+    </div>
+
+    <div class="how-step">
+      <div class="how-num">3</div>
+      <div class="how-text">
+        <strong>Make an Impact</strong>
+        <span>Your points create real change</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       REWARD CARDS
+  ══════════════════════════════════ -->
+  <div class="section-label">Choose Your Reward</div>
+
+  <section class="grid">
+
+    <!-- TREE DONATION -->
+    <div class="card tree-card">
+      <div class="card-visual">
+        <div class="card-emoji">🌱</div>
+        <div class="sparkle sparkle-1"></div>
+        <div class="sparkle sparkle-2"></div>
+        <div class="sparkle sparkle-3"></div>
+      </div>
+      <div class="card-body">
+        <h3>Tree Donation</h3>
+        <p>Donate your EcoPoints to plant real trees around the world and offset your carbon footprint permanently.</p>
+        <div class="cost-badge">🌿 500 pts per tree</div>
+        <button class="card-btn" onclick="goDonation()">
+          🌳 &nbsp;Donate Trees
+        </button>
+      </div>
+    </div>
+
+    <!-- TRAVEL VOUCHERS -->
+    <div class="card travel-card">
+      <div class="card-visual">
+        <div class="card-emoji">🎫</div>
+        <div class="sparkle sparkle-1"></div>
+        <div class="sparkle sparkle-2"></div>
+        <div class="sparkle sparkle-3"></div>
+      </div>
+      <div class="card-body">
+        <h3>Travel Vouchers</h3>
+        <p>Claim discounts on public transport, bikes, and electric vehicles. Sustainable travel, rewarded.</p>
+        <div class="cost-badge">🚌 200 pts per voucher</div>
+        <button class="card-btn" onclick="goVoucher()">
+          🎟 &nbsp;Get Voucher
+        </button>
+      </div>
+    </div>
+
+    <!-- ECO MARKETPLACE -->
+    <div class="card market-card">
+      <div class="card-visual">
+        <div class="card-emoji">🛍️</div>
+        <div class="sparkle sparkle-1"></div>
+        <div class="sparkle sparkle-2"></div>
+        <div class="sparkle sparkle-3"></div>
+      </div>
+      <div class="card-body">
+        <h3>Eco Marketplace</h3>
+        <p>Browse and buy eco-friendly products from verified sustainable brands using your EcoPoints.</p>
+        <div class="cost-badge">🏪 100 pts minimum</div>
+        <button class="card-btn" onclick="goMarket()">
+          🛒 &nbsp;Open Store
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-icon">💡</div>
+    <span>EcoPoints never expire. Every point you spend directly contributes to verified environmental projects. Keep earning by tracking daily activities on your <strong>Dashboard</strong>.</span>
+  </div>
 
 </main>
 
