@@ -1,88 +1,769 @@
-body{
-background:#eef3ef;
-font-family:Inter,sans-serif;
-margin:0;
-color:#1f2d2a;
+/* ============================================================
+   ECOCOMMIT — VOUCHERS CSS
+   Premium redesign: hero savings banner, ticket-style cards,
+   animated visuals, rich micro-interactions
+   Matches home + dashboard + donation theme exactly
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+/* ── TOKENS ── */
+:root {
+  --green:        #2d6a4f;
+  --green-mid:    #40916c;
+  --green-light:  #74c69d;
+  --green-pale:   #e3f0e8;
+  --blue:         #1b4fa3;
+  --blue-pale:    #e4ecf8;
+  --gold:         #c8860a;
+  --gold-light:   #f5c518;
+  --gold-pale:    #fdf4d0;
+  --purple:       #6c3fc5;
+  --purple-pale:  #ede8fb;
+  --teal:         #0e7490;
+  --teal-pale:    #e0f4f8;
+
+  --card:         rgba(255,255,255,0.85);
+  --card-border:  rgba(255,255,255,0.95);
+  --card-shadow:  0 2px 28px rgba(30,80,50,0.08);
+  --card-hover:   0 20px 56px rgba(30,80,50,0.16);
+
+  --text-h:       #1b3a2d;
+  --text-body:    #2e3d34;
+  --text-muted:   #5a7a68;
+  --divider:      rgba(64,145,108,0.1);
+
+  --radius:       24px;
+  --radius-sm:    14px;
+  --ease-spring:  cubic-bezier(0.34,1.3,0.64,1);
+  --ease-out:     cubic-bezier(0.22,1,0.36,1);
 }
 
-.container{
-width:1100px;
-margin:50px auto;
+/* ── RESET ── */
+*,*::before,*::after { margin:0; padding:0; box-sizing:border-box; }
+
+/* ── BASE ── */
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text-body);
+  background: linear-gradient(160deg, #e8f5ee 0%, #dff0e7 55%, #d8eee2 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-h1{
-font-size:36px;
-margin-bottom:35px;
+/* ambient orbs */
+body::before {
+  content: '';
+  position: fixed;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(116,198,157,0.16) 0%, transparent 65%);
+  top: -250px; left: -180px;
+  pointer-events: none;
+  animation: orbDrift1 14s ease-in-out infinite;
+  z-index: 0;
 }
 
-/* GRID */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
+body::after {
+  content: '';
+  position: fixed;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(27,79,163,0.09) 0%, transparent 65%);
+  bottom: -150px; right: -100px;
+  pointer-events: none;
+  animation: orbDrift2 18s ease-in-out infinite;
+  z-index: 0;
 }
 
-/* CARD */
-
-.card{
-background:white;
-padding:30px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-
-min-height:220px;
-
-transition:0.25s;
+@keyframes orbDrift1 {
+  0%,100% { transform:translate(0,0) scale(1); }
+  50%      { transform:translate(40px,30px) scale(1.08); }
+}
+@keyframes orbDrift2 {
+  0%,100% { transform:translate(0,0) scale(1); }
+  50%      { transform:translate(-25px,-18px) scale(1.06); }
 }
 
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 16px 40px rgba(0,0,0,0.12);
+#navbar-container { position: relative; z-index: 1000; }
+
+/* ── LAYOUT ── */
+.container {
+  width: min(1100px, 94%);
+  margin: 28px auto 80px;
+  padding-top: 8px;
+  position: relative;
+  z-index: 1;
 }
 
-/* TEXT */
-
-.card h3{
-font-size:20px;
-margin-bottom:10px;
+/* ── PAGE HEADER ── */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeDown 0.6s var(--ease-out) 0.05s forwards;
 }
 
-.card p{
-color:#6a7d75;
-margin-bottom:8px;
+h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  color: var(--text-h);
+  letter-spacing: -0.03em;
 }
 
-/* BUTTON */
-
-.card button{
-
-margin-top:auto;
-
-width:120px;
-
-padding:10px 16px;
-
-border:none;
-border-radius:10px;
-
-background:linear-gradient(90deg,#2e7d32,#1f4fa3);
-
-color:white;
-
-cursor:pointer;
-
-font-weight:500;
-
-transition:0.2s;
-
+.page-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 18px;
+  background: rgba(64,145,108,0.1);
+  border: 1px solid rgba(64,145,108,0.25);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--green);
 }
 
-.card button:hover{
-opacity:0.9;
-transform:scale(1.05);
+/* ══════════════════════════════════════
+   HERO SAVINGS BANNER
+══════════════════════════════════════ */
+.hero-banner {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 48px rgba(30,80,50,0.2);
+  opacity: 0;
+  animation: fadeUp 0.7s var(--ease-out) 0.1s forwards;
+}
+
+.hero-inner {
+  background: linear-gradient(135deg,
+    #1b3a2d 0%,
+    #2d6a4f 25%,
+    #1b4fa3 65%,
+    #0e3a8a 100%
+  );
+  padding: 48px 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-inner::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(116,198,157,0.2) 0%, transparent 60%);
+  top: -180px; left: -80px;
+  animation: meshFloat1 9s ease-in-out infinite;
+}
+
+.hero-inner::after {
+  content: '';
+  position: absolute;
+  width: 380px; height: 380px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,197,24,0.15) 0%, transparent 60%);
+  bottom: -120px; right: -60px;
+  animation: meshFloat2 12s ease-in-out infinite;
+}
+
+@keyframes meshFloat1 {
+  0%,100% { transform:translate(0,0) scale(1); }
+  50%      { transform:translate(30px,20px) scale(1.08); }
+}
+@keyframes meshFloat2 {
+  0%,100% { transform:translate(0,0) scale(1); }
+  50%      { transform:translate(-20px,15px) scale(1.06); }
+}
+
+.hero-dots {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 26px 26px;
+  pointer-events: none;
+}
+
+/* hero left */
+.hero-left { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 10px;
+}
+
+.hero-left h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: white;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.hero-left h2 span { color: var(--gold-light); }
+
+.hero-desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.65;
+  max-width: 400px;
+  margin-bottom: 22px;
+}
+
+.impact-pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.impact-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease;
+}
+
+.impact-pill:hover { background: rgba(255,255,255,0.2); }
+
+/* hero right: animated ticket visual */
+.hero-right {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* floating ticket stub */
+.ticket-visual {
+  width: 180px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 16px;
+  padding: 18px 20px;
+  position: relative;
+  animation: ticketFloat 4s ease-in-out infinite;
+}
+
+@keyframes ticketFloat {
+  0%,100% { transform:translateY(0) rotate(-1deg); }
+  50%      { transform:translateY(-10px) rotate(1deg); }
+}
+
+/* ticket notches */
+.ticket-visual::before,
+.ticket-visual::after {
+  content: '';
+  position: absolute;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: rgba(30,80,50,0.4);
+  top: 50%; transform: translateY(-50%);
+}
+.ticket-visual::before { left: -10px; }
+.ticket-visual::after  { right: -10px; }
+
+.ticket-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 4px;
+}
+
+.ticket-value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: white;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.ticket-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  margin: 10px 0;
+  position: relative;
+}
+
+/* dashed line on divider */
+.ticket-divider::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-top: 2px dashed rgba(255,255,255,0.15);
+}
+
+.ticket-sub {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.6);
+}
+
+/* savings stat below ticket */
+.hero-stat {
+  text-align: center;
+}
+.hero-stat-value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: white;
+  letter-spacing: -0.03em;
+  opacity: 0;
+  animation: countPop 0.7s var(--ease-spring) 0.9s forwards;
+}
+.hero-stat-label {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.55);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ══════════════════════════════════════
+   SAVINGS STATS STRIP
+══════════════════════════════════════ */
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  background: var(--divider);
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 28px;
+  opacity: 0;
+  animation: fadeUp 0.6s var(--ease-out) 0.28s forwards;
+}
+
+.stat-block {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.2s ease;
+}
+
+.stat-block:hover { background: rgba(255,255,255,0.92); }
+
+.stat-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.stat-icon.green  { background: var(--green-pale); }
+.stat-icon.gold   { background: var(--gold-pale); }
+.stat-icon.blue   { background: var(--blue-pale); }
+
+.stat-text strong {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text-h);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.stat-text span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 3px;
+  display: block;
+}
+
+/* ── SECTION LABEL ── */
+.section-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeDown 0.5s var(--ease-out) 0.38s forwards;
+}
+
+/* ══════════════════════════════════════
+   VOUCHER CARDS GRID
+══════════════════════════════════════ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
+}
+
+/* ── TICKET CARD ── */
+.card {
+  background: var(--card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.32s var(--ease-spring), box-shadow 0.32s ease;
+
+  opacity: 0;
+  animation: cardReveal 0.65s var(--ease-spring) forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.44s; }
+.card:nth-child(2) { animation-delay: 0.56s; }
+.card:nth-child(3) { animation-delay: 0.68s; }
+
+/* coloured top bar */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.card.flight-card::before  { background: linear-gradient(90deg, var(--blue), #5b8ef0); }
+.card.train-card::before   { background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.card.metro-card::before   { background: linear-gradient(90deg, var(--teal), #22d3ee); }
+
+.card:hover::before { transform: scaleX(1); }
+
+/* shimmer */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -80%;
+  width: 55%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.42), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+
+.card:hover::after { left: 130%; }
+.card:hover {
+  transform: translateY(-10px) scale(1.01);
+  box-shadow: var(--card-hover);
+}
+
+/* ── CARD VISUAL ── */
+.card-visual {
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.flight-card .card-visual { background: linear-gradient(145deg, var(--blue-pale), #ccd8f2); }
+.train-card  .card-visual { background: linear-gradient(145deg, var(--gold-pale), #fce8b0); }
+.metro-card  .card-visual { background: linear-gradient(145deg, var(--teal-pale),  #b8eaf4); }
+
+/* wave cut */
+.card-visual::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 30px;
+  background: var(--card);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.card-emoji {
+  font-size: 54px;
+  line-height: 1;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,0.1));
+  animation: iconFloat 4s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+.card:nth-child(2) .card-emoji { animation-delay: 1.4s; }
+.card:nth-child(3) .card-emoji { animation-delay: 2.8s; }
+
+@keyframes iconFloat {
+  0%,100% { transform:translateY(0) rotate(-2deg) scale(1); }
+  50%      { transform:translateY(-9px) rotate(2deg) scale(1.04); }
+}
+
+/* sparkles */
+.sparkle {
+  position: absolute;
+  border-radius: 50%;
+  animation: sparklePulse 2.8s ease-in-out infinite;
+  z-index: 1;
+}
+
+.sp1 { width:8px; height:8px; top:18px; right:22px; animation-delay:0s; }
+.sp2 { width:5px; height:5px; top:55px; right:52px; animation-delay:0.9s; }
+.sp3 { width:6px; height:6px; bottom:22px; left:20px; animation-delay:1.7s; }
+
+.flight-card .sparkle { background: var(--blue); }
+.train-card  .sparkle { background: var(--gold); }
+.metro-card  .sparkle { background: var(--teal); }
+
+@keyframes sparklePulse {
+  0%,100% { transform:scale(1); opacity:0.4; }
+  50%      { transform:scale(1.8); opacity:0.85; }
+}
+
+/* ── CARD BODY ── */
+.card-body {
+  padding: 22px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 10px;
+}
+
+.voucher-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  padding: 3px 10px;
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.flight-card .voucher-tag { color: var(--blue);  background: var(--blue-pale); }
+.train-card  .voucher-tag { color: var(--gold);  background: var(--gold-pale); }
+.metro-card  .voucher-tag { color: var(--teal);  background: var(--teal-pale); }
+
+.card-body h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--text-h);
+  letter-spacing: -0.015em;
+}
+
+.card-body > p {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* savings highlight */
+.savings-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--green);
+  letter-spacing: -0.02em;
+}
+
+.savings-badge span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0;
+}
+
+/* cost row */
+.cost-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--divider);
+  background: rgba(64,145,108,0.04);
+}
+
+.cost-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.cost-value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--text-h);
+}
+
+/* claim button */
+button {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.28s var(--ease-spring);
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.01em;
+}
+
+.flight-card button { background: linear-gradient(135deg, var(--blue), #2e6ae6); box-shadow: 0 4px 18px rgba(27,79,163,0.28); }
+.train-card  button { background: linear-gradient(135deg, var(--gold), #e8a020); box-shadow: 0 4px 18px rgba(200,134,10,0.28); }
+.metro-card  button { background: linear-gradient(135deg, var(--teal), #0891b2); box-shadow: 0 4px 18px rgba(14,116,144,0.28); }
+
+/* gloss */
+button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.14) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* shimmer */
+button::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -80%;
+  width: 55%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.25), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+
+button:hover::after { left: 130%; }
+
+.flight-card button:hover { transform:translateY(-2px); box-shadow: 0 8px 28px rgba(27,79,163,0.4); }
+.train-card  button:hover { transform:translateY(-2px); box-shadow: 0 8px 28px rgba(200,134,10,0.4); }
+.metro-card  button:hover { transform:translateY(-2px); box-shadow: 0 8px 28px rgba(14,116,144,0.4); }
+
+button:active { transform:translateY(0) !important; }
+
+/* ══════════════════════════════════════
+   INFO STRIP
+══════════════════════════════════════ */
+.info-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  padding: 18px 24px;
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(64,145,108,0.15);
+  border-radius: 16px;
+  opacity: 0;
+  animation: fadeUp 0.6s var(--ease-out) 0.8s forwards;
+}
+
+.info-icon { font-size: 22px; flex-shrink: 0; }
+
+.info-text {
+  font-size: 0.83rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.info-text strong { color: var(--text-h); }
+
+/* ── KEYFRAMES ── */
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-14px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(22px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+
+@keyframes cardReveal {
+  from { opacity:0; transform:translateY(28px) scale(0.96); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+
+@keyframes countPop {
+  from { opacity:0; transform:scale(0.6); }
+  60%  { transform:scale(1.08); }
+  to   { opacity:1; transform:scale(1); }
+}
+
+/* ── DARK MODE ── */
+body.dark {
+  background: linear-gradient(160deg, #0f1a14 0%, #111c16 100%);
+  color: #e5e7eb;
+}
+
+body.dark .card,
+body.dark .stat-block,
+body.dark .info-strip {
+  background: rgba(18,28,22,0.88);
+  border-color: rgba(64,145,108,0.15);
+}
+
+body.dark .card-visual {
+  filter: brightness(0.8);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .grid         { grid-template-columns: 1fr 1fr; }
+  .stats-strip  { grid-template-columns: 1fr; }
+  .hero-inner   { flex-direction: column; padding: 32px 28px; }
+}
+
+@media (max-width: 560px) {
+  .grid       { grid-template-columns: 1fr; }
+  .hero-inner { padding: 28px 22px; }
+  .ticket-visual { display: none; }
 }
