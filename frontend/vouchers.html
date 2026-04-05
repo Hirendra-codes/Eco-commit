@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<title>Travel Vouchers</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Vouchers — EcoCommit AI</title>
 
 <link rel="stylesheet" href="navbar.css">
 <link rel="stylesheet" href="vouchers.css">
 
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,31 +17,163 @@
 
 <main class="container">
 
-<h1>Travel Vouchers</h1>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Travel Vouchers 🎫</h1>
+    <div class="page-tag">✈️ 3 Vouchers Available</div>
+  </div>
 
-<section class="grid">
+  <!-- ══════════════════════════════════
+       HERO SAVINGS BANNER
+  ══════════════════════════════════ -->
+  <div class="hero-banner">
+    <div class="hero-inner">
 
-<div class="card">
-<h3>Flight Voucher</h3>
-<p>$50 discount</p>
-<p>Cost: 2000 EcoPoints</p>
-<button onclick="claimVoucher(2000)">Claim</button>
-</div>
+      <div class="hero-dots"></div>
 
-<div class="card">
-<h3>Train Discount</h3>
-<p>$20 discount</p>
-<p>Cost: 1000 EcoPoints</p>
-<button onclick="claimVoucher(1000)">Claim</button>
-</div>
+      <!-- left -->
+      <div class="hero-left">
+        <div class="hero-eyebrow">Eco Travel · Verified Discounts</div>
+        <h2>Redeem Points for<br><span>Real Travel Savings</span></h2>
+        <p class="hero-desc">
+          Use your EcoPoints to unlock discounts on flights, trains, and public transport. Travel sustainably and get rewarded for it.
+        </p>
+        <div class="impact-pills">
+          <div class="impact-pill">✈️ Flights</div>
+          <div class="impact-pill">🚆 Trains</div>
+          <div class="impact-pill">🚇 Metro</div>
+          <div class="impact-pill">🛡 Verified</div>
+        </div>
+      </div>
 
-<div class="card">
-<h3>Metro Pass</h3>
-<p>Cost: 700 EcoPoints</p>
-<button onclick="claimVoucher(700)">Claim</button>
-</div>
+      <!-- right: animated ticket stub -->
+      <div class="hero-right">
+        <div class="ticket-visual">
+          <div class="ticket-label">Max Savings</div>
+          <div class="ticket-value">$50</div>
+          <div class="ticket-divider"></div>
+          <div class="ticket-sub">per voucher · eco travel</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">$70+</div>
+          <div class="hero-stat-label">Total Savings Available</div>
+        </div>
+      </div>
 
-</section>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       SAVINGS STATS STRIP
+  ══════════════════════════════════ -->
+  <div class="stats-strip">
+
+    <div class="stat-block">
+      <div class="stat-icon green">✈️</div>
+      <div class="stat-text">
+        <strong>$50</strong>
+        <span>Max Flight Discount</span>
+      </div>
+    </div>
+
+    <div class="stat-block">
+      <div class="stat-icon gold">🎫</div>
+      <div class="stat-text">
+        <strong>700 pts</strong>
+        <span>Minimum to Redeem</span>
+      </div>
+    </div>
+
+    <div class="stat-block">
+      <div class="stat-icon blue">♻️</div>
+      <div class="stat-text">
+        <strong>100%</strong>
+        <span>Eco-Verified Travel</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       VOUCHER CARDS
+  ══════════════════════════════════ -->
+  <div class="section-label">Choose Your Travel Voucher</div>
+
+  <section class="grid">
+
+    <!-- FLIGHT VOUCHER -->
+    <div class="card flight-card">
+      <div class="card-visual">
+        <div class="card-emoji">✈️</div>
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+      </div>
+      <div class="card-body">
+        <div class="voucher-tag">🏆 Best Value</div>
+        <h3>Flight Voucher</h3>
+        <p>Get a discount on your next eco-certified flight booking with our partner airlines.</p>
+        <div class="savings-badge">$50 <span>discount</span></div>
+        <div class="cost-row">
+          <span class="cost-label">EcoPoints Required</span>
+          <span class="cost-value">2,000 pts</span>
+        </div>
+        <button onclick="claimVoucher(2000)">✈️ &nbsp;Claim Voucher</button>
+      </div>
+    </div>
+
+    <!-- TRAIN DISCOUNT -->
+    <div class="card train-card">
+      <div class="card-visual">
+        <div class="card-emoji">🚆</div>
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+      </div>
+      <div class="card-body">
+        <div class="voucher-tag">🌿 Eco Friendly</div>
+        <h3>Train Discount</h3>
+        <p>Reduce your carbon footprint further with discounts on intercity rail and high-speed trains.</p>
+        <div class="savings-badge">$20 <span>discount</span></div>
+        <div class="cost-row">
+          <span class="cost-label">EcoPoints Required</span>
+          <span class="cost-value">1,000 pts</span>
+        </div>
+        <button onclick="claimVoucher(1000)">🚆 &nbsp;Claim Voucher</button>
+      </div>
+    </div>
+
+    <!-- METRO PASS -->
+    <div class="card metro-card">
+      <div class="card-visual">
+        <div class="card-emoji">🚇</div>
+        <div class="sparkle sp1"></div>
+        <div class="sparkle sp2"></div>
+        <div class="sparkle sp3"></div>
+      </div>
+      <div class="card-body">
+        <div class="voucher-tag">⚡ Most Accessible</div>
+        <h3>Metro Pass</h3>
+        <p>Claim a metro or city bus pass for unlimited sustainable urban transport for a day.</p>
+        <div class="savings-badge">Free <span>day pass</span></div>
+        <div class="cost-row">
+          <span class="cost-label">EcoPoints Required</span>
+          <span class="cost-value">700 pts</span>
+        </div>
+        <button onclick="claimVoucher(700)">🚇 &nbsp;Claim Voucher</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-icon">🎟️</div>
+    <div class="info-text">
+      Vouchers are delivered to your registered email within <strong>24 hours</strong> of claiming.
+      Each voucher is valid for <strong>90 days</strong>. Unused points are never deducted unless your claim is confirmed.
+    </div>
+  </div>
 
 </main>
 
